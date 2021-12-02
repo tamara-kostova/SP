@@ -4,30 +4,21 @@
 Еден број “е парен еквивалент” на друг број, ако и само ако неговите цифри се наоѓаат на парните позиции од другиот број, во истиот редослед. Соодветно да се испечатат пораки „PAREN“ и „NE“.
 Позициите треба да се сметаат оддесно-налево (најмалку значајната цифра е на позиција 1)*/
 #include <stdio.h>
-int main(){
-int a, b, k;
-scanf("%d %d", &a, &b);
-if (a<=0||b<=0) printf("Invalid input");
-else{
-if (a>b){
-    a=a+b;
-    b=a-b;
-    a=a-b;
-}
- while(b){
-        k=1;
-        b/=10;
-        if(a%10!=b%10){
+int main()
+{
+    int n, m;
+    scanf("%d %d", &n, &m);
+    if (n>m) {int temp=n; n=m; m=temp;}
+    while (m){
+        m/=10;
+        if (n%10!=m%10){
             printf("NE");
-            k=0;
-            break;
+            return 0;
         }
-        b/=10;
-        a/=10;
-
+        m/=10;
+        n/=10;
     }
-    if (k)
     printf("PAREN");
+    return 0;
 }
-return 0;
-}
+
