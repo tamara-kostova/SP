@@ -7,7 +7,7 @@ a<5, b>=5, c<5, d>=5 или a>=5, b<5, c>=5, d<5
 #include <stdio.h>
 int cikcak (int n){
 int c=1;
-while (n>0){
+while (n>0&&n>9){
     int c1=n%10, c2=n/10%10;
     if (!((c1>=5&&c2<5)||(c1<5&&c2>=5))) c=0;
     n/=10;
