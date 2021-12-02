@@ -4,21 +4,17 @@
 Доколку бројот n не содржи најмалку 2 цифри петки, да се испечати порака за грешка како во тест примерите.*/
 #include <stdio.h>
 int main(){
-int n, a[4], b[4], br=0;
-scanf("%d", &n);
-float x=n;
-for (int i=3; i>=0; i--){
-    a[i]=n%10;
-    if (a[i]==5) {
-            b[i]=6;
-            br++;}
-    else b[i]=a[i];
-    n/=10;
+int n, i=0, p=0;
+scanf("%d",&n);
+int m=n, k=n;
+while (n>0){
+    if (n%10==5){
+        m+=pow(10,i);
+        p++;}
+n/=10;
+i++;
 }
-if (br<2) printf("Error");
-else {
-    int kolega=1000*b[0]+100*b[1]+10*b[2]+b[3];
-    printf("%.4f%%", ((kolega-x)*100.0)/x);
-}
+if (p>=2) printf("%.4f%%", ((m-k)*100.0)/k);
+else printf("Error");
 return 0;
 }
