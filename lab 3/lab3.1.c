@@ -2,22 +2,16 @@
 а потоа повторно во посебен ред нивната сума и производ.
 Ако бројот не е 7 цифрен само испечатете "Vneseniot broj ne e 7 cifren!".*/
 #include <stdio.h>
+#include <math.h>
 int main(){
-int n, x, i=0, s=0, p=1;
+int n, s=0, p=1, j;
 scanf("%d", &n);
-x=n;
-while (x>0){
-    x/=10;
-    i++;
-}
-if (i==7){
-        int a[7]={};
-    for (int i=6; i>=0; i--){
-        a[i]=n%10;
-        s+=a[i];
-        p*=a[i];
-        n/=10;}
-    for (int i=0; i<7; i++) printf("%d\n", a[i]);
+if (n/1000000>0&&n/1000000<10){
+        for (int i=6; i>=0; i--){
+            j=n/pow(10,i);
+            printf("%d\n", j%10);
+            s+=j%10;
+            p*=j%10;}
 printf("%d\n", s);
 printf("%d", p);
 }
