@@ -5,27 +5,20 @@ a>b, b<c, c>d, d<e или a<b, b>c, c<d, d>e
 Од тастатура се читаат непознат број цели броеви поголеми од или еднакви на 10 (броевите помали од 10 се игнорираат).
 Читањето завршува во моментот кога ќе се прочита знак што не е цифра. Да се испечатат сите цик-цак броеви.*/
 #include <stdio.h>
-int cikcak(int n){
-    int cikcak=0, c=0;
-    while (n>0){
-        if (n<100) {if (n%10!=n/10) {c=1; break;}}
-        int c1=n%10, c2=n/10%10, c3=n/100%10;
-        if ((c1>c2&&c2<c3)||(c1<c2&&c2>c3))
-            c=1;
-        else {
-            c=0;
-            break;
-        }
-            n/=10;
-    }
-return c;
+int cikcak (int n){
+while (n>0){
+    if (n<100) {if(n%10!=n/10) return 1;}
+    int c1=n%10, c2=n/10%10, c3=n/100%10;
+    if (!((c1>c2&&c2<c3)||(c1<c2&&c2>c3))) return 0;
+    n/=10;
 }
-int main(){
+return 1;
+}
+int main()
+{
     int n;
-    while (scanf("%d\n", &n)){
-            if (n<10) continue;
-            if (cikcak(n))
-                    printf("%d\n", n);
-    }
+    while(scanf("%d", &n))
+        if (n>9)
+            if (cikcak(n)) printf("%d", n);
     return 0;
 }
