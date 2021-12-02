@@ -8,6 +8,8 @@ int main()
 {
     int n, m;
     scanf("%d %d", &n, &m);
+    if (n<=0||m<=0) printf("Invalid input");
+    else{
     if (n>m) {int temp=n; n=m; m=temp;}
     while (m){
         m/=10;
@@ -18,7 +20,7 @@ int main()
         m/=10;
         n/=10;
     }
-    printf("PAREN");
+    printf("PAREN");}
     return 0;
 }
 
