@@ -2,23 +2,25 @@
 Во зададен опсег (почетокот m и крајот на опегот n се цели броеви чија вредност се внесува од тастатура),
 да се најде и испечати најмалиот „благ број“. Ако не постои таков број, да се испечати NE.*/
 #include <stdio.h>
-int main(){
-    int n, m, blag, k, j;
-    scanf("%d %d", &n, &m);
+int blag(int n){
+    while (n>0){
+        if (n%10%2) return 0;
+        n/=10;
+    }
+return 1;
+}
+int main()
+{
+    int n, m, b=0;
+    scanf("%d %d",&n, &m);
     for (int i=n; i<=m; i++){
-        int k=j=i;
-        blag=1;
-        while (j>0){
-            if ((j%10)%2!=0){
-                blag=0;
-                break;}
-            else j/=10;
-        }
-        if (blag!=0){
-            printf("%d", k);
-            break;
+        if (blag(i)){
+            printf("%d", i);
+            b=1;
+            return 0;
         }
     }
-if (blag==0) printf("NE");
-return 0;
-    }
+    printf("NE");
+    return 0;
+}
+
