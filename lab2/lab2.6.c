@@ -3,18 +3,8 @@
 средишната цифра. Така, ако внесениот број е 12596, програмата враќа 7 11 5.*/
 #include <stdio.h>
 int main(){
-    int n, cifri[4]={0};
+    int n;
     scanf("%d", &n);
-    if (n==0)
-        printf("0 0 0");
-    else{
-    for (int i=4; n>0; i--){
-        cifri[i]=n%10;
-        n/=10;
-    }
-    for (int i=0; i<2; i++)
-    printf("%d ", cifri[i]+cifri[4-i]);
-    printf("%d", cifri[2]);
-    }
+    printf("%d %d %d", n%10+n/10000, n/10%10+n/1000%10, n/100%100);
 return 0;
     }
