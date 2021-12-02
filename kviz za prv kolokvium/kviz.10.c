@@ -19,6 +19,6 @@ int main()
     int n;
     while(scanf("%d", &n))
         if (n>9)
-            if (cikcak(n)) printf("%d", n);
+            if (cikcak(n)) printf("%d\n", n);
     return 0;
 }
