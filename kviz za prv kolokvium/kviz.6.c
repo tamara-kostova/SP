@@ -3,23 +3,18 @@
 Внесувањето на парови цели броеви треба да заврши кога корисникот ќе го внесе парот (0, 0).
 Треба да се пресмета колку пати z е еднаков на збирот на секој внесен пар броеви a и b,
 како и колкав процент од вкупниот број внесени парови (a, b) даваат збир z
-(ЗАБЕЛЕШКА: парот (0, 0) не се зема во предвид при извршувањето на пресметките!).*
-/#include <stdio.h>
-int main(){
-int z, i=0, brojac=-1, k=0, a[1000], b[1000];
-scanf("%d",&z);
-do{
-    scanf("%d %d", &a[i], &b[i]);
-    brojac++;
-    i++;
-    if (a[i-1]==0&&b[i-1]==0)
-        break;
+(ЗАБЕЛЕШКА: парот (0, 0) не се зема во предвид при извршувањето на пресметките!).*/
+#include <stdio.h>
+int main()
+{
+    int a, b, z, v=0, p=0;
+    scanf("%d", &z);
+    scanf("%d %d", &a, &b);
+    while (a!=0||b!=0){
+        if (a+b==z) p++;
+        v++;
+        scanf("%d %d", &a, &b);
+    }
+    printf("Vnesovte %d parovi od broevi chij zbir e %d\nProcentot na parovi so zbir %d e %.2f%%", p, z, z, 100.0*p/v);
+    return 0;
 }
-while (i>0);
-for (int i=0; i<brojac; i++){
-    if (a[i]+b[i]==z)
-        k++;
-}
-float procent=(float)k/(brojac)*100.0;
-printf("Vnesovte %d parovi od broevi chij zbir e %d\nProcentot na parovi so zbir %d e %.2f%%", k, z, z, procent);
-return 0;}
