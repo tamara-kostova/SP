@@ -5,37 +5,28 @@
 Ако внесениот број не е валиден, да се отпечати соодветна порака (Brojot ne e validen).
 */
 #include <stdio.h>
-#include <math.h>
-int brojnacifri (int n){
-    int c=0;
+int brcifri(int n){
+int c=0;
     while (n>0){
-        n/=10;
-        c++;
+        n/=10; c++;
     }
-    return c;
+return c;
 }
-int obratenbroj (int n, int c){
-int a=0;
+int obratenrboj(int n){
+int b=0;
 while (n>0){
-        a+=(n%10)*pow(10,c-1);
-        n/=10;
-        c--;
-    }
-return a;
+    b=b*10+n%10; n/=10;}
+return b;
 }
-int main(){
-int a=0, n, c;
-scanf("%d",&n);
-if (n<=9) printf("Brojot ne e validen");
-else {
-for (int i=n-1; i>0; i--){
-    c=brojnacifri(i);
-    a=obratenbroj(i, c);
-    if (a%c==0){
-        printf("%d", i);
-        break;
-    }
-}
-}
-return 0;
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    if (n<9) printf("Brojot ne e validen");
+    else for (int i=n-1; i>0; i--)
+        if (!(obratenrboj(i)%brcifri(i))){
+            printf("%d", i);
+            return 0;
+        }
+    return 0;
 }
