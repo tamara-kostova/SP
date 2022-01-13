@@ -5,27 +5,25 @@
 да се креира квадрант, тогаш за сумата на тој квадрант треба да се испечати 0.*/
 #include <stdio.h>
 
-int main () {
-    int m, n, prv, vtor, tret, cetvrt, red, kol;
-    scanf("%d %d", &n, &m);
+int main()
+{
+    int n, m, indi, indj, s[5]={0};
+    scanf("%d %d",&n, &m);
     int a[n][m];
-    prv=vtor=tret=cetvrt=0;
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < m; j++)
+    for (int i=0; i<n; i++)
+        for (int j=0; j<m; j++)
             scanf("%d", &a[i][j]);
-    scanf("%d %d", &red, &kol);
-    for (int i=0; i<red; i++)
-        for (int j=kol; j<m; j++)
-            prv+=a[i][j];
-    for (int i=0; i<red; i++)
-        for (int j=0; j<kol; j++)
-            vtor+=a[i][j];
-    for (int i=red; i<n; i++)
-        for (int j=0; j<kol; j++)
-            tret+=a[i][j];
-    for (int i=red; i<n; i++)
-        for (int j=kol; j<m; j++)
-            cetvrt+=a[i][j];
-    printf("%d %d %d %d", prv, vtor, tret, cetvrt);
+    scanf("%d %d",&indi, &indj);
+    for (int i=0; i<n; i++)
+        for (int j=0; j<m; j++){
+            if (i<indi)
+            {
+                if(j<indj) s[1]+=a[i][j];
+                else s[2]+=a[i][j];}
+            else{
+                if(j<indj) s[3]+=a[i][j];
+                else s[4]+=a[i][j];}
+            }
+    for (int i=1; i<5; i++) printf("%d ",s[i]);
     return 0;
 }
