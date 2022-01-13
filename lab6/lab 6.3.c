@@ -3,23 +3,17 @@
 #include <stdio.h>
 int main(){
 int n;
-scanf("%d", &n);
-int a[n], b[n];
-for (int i=0; i<n; i++)
-        scanf("%d", &a[i]);
-for (int i=0; i<n; i++)
+    scanf("%d",&n);
+    int a[n];
+    for (int i=0; i<n; i++) scanf("%d",&a[i]);
+    for (int i=n-1; i>=0; i--)
     printf("%d ", a[i]);
-printf("\n");
-for (int i=0; i<n; i++){
-    b[i]=a[n-i-1];
-    printf("%d ", b[i]);
-}
-printf("\n");
-for (int i=0; i<n; i++)
-    if (!(i%2)) printf("%d ", b[i]);
-printf("\n");
-for (int i=n-1; i>=0; i--)
-    if (!(i%2)) printf("%d ", b[i]);
-return 0;
+    printf("\n");
+    for (int i=n-1, k=1; i>=0; i--,k++)
+    if (k%2) printf("%d ",a[i]);
+    printf("\n");
+    for (int i=0, k=1; i<n; i++,k++)
+    if (k%2) printf("%d ",a[i]);
+    return 0;
 }
 
