@@ -2,30 +2,21 @@
 броеви, која се чита во продолжение. Да се напише програма која од таа матрица(макс. 100 x 100) ќе креира нова матрица 2 x 2,
 која ќе ги има за елементи збировите на елементите на регионите на првата матрица, соодветно. */
 #include <stdio.h>
-int main(){
-int n;
-scanf("%d", &n);
-int a[n][n], b[2][2]={0};
-for (int i=0; i<n; i++)
-    for (int j=0; j<n; j++)
-        scanf("%d", &a[i][j]);
 
-for (int i=0; i<n/2; i++)
-    for (int j=0; j<n/2; j++)
-           b[0][0]+=a[i][j];
-for (int i=0; i<n/2; i++)
-    for (int j=n/2+1; j<n; j++)
-            b[0][1]+=a[i][j];
-for (int i=n/2+1; i<n; i++)
-    for (int j=0; j<n/2; j++)
-            b[1][0]+=a[i][j];
-for (int i=n/2+1; i<n; i++)
-    for (int j=n/2+1; j<n; j++)
-            b[1][1]+=a[i][j];
-
-for (int i=0; i<2; i++){
-    for (int j=0; j<2; j++)
-        printf("%d ", b[i][j]);
-printf("\n");}
-return 0;
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int a[n][n],r1=0,r2=0,r3=0,r4=0;
+    for(int i=0; i<n; i++)
+        for(int j=0; j<n; j++){
+            scanf("%d",&a[i][j]);
+            if (i<n/2&&j<n/2) r1+=a[i][j];
+            if (i<n/2&&j>n/2) r2+=a[i][j];
+            if (i>n/2&&j<n/2) r3+=a[i][j];
+            if(i>n/2&&j>n/2) r4+=a[i][j];
+        }
+    printf("%d %d\n",r1,r2);
+    printf("%d %d\n",r3,r4);
+    return 0;
 }
